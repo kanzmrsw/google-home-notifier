@@ -6,7 +6,7 @@ var app = express();
 const serverPort = 8091; // default port
 
 var deviceName = 'Google Home';
-var ip = '192.168.1.20'; // default IP
+var ip = '192.168.1.74'; // default IP
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
