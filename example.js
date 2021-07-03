@@ -1,13 +1,15 @@
 var express = require("express");
 var googlehome = require("./google-home-notifier");
 var ngrok = require("ngrok");
-// var bodyParser = require("body-parser");
 var app = express();
 const serverPort = 8091; // default port
 
 var deviceName = "Google Home";
 // var ip = "192.168.1.33"; // Takashi's room
 var ip = "192.168.1.86"; // calfani
+
+// ngrok authtoken
+let token = "3qnXnrPB7BCd7SYUBfsR4_5wFA9NWm1NDDcsyPk5f8D";
 
 var urlencodedParser = express.urlencoded({ extended: false });
 
@@ -95,7 +97,7 @@ app.get("/google-home-notifier", function (req, res) {
 });
 
 app.listen(serverPort, async function () {
-  const url = await ngrok.connect(serverPort);
+  const url = await ngrok.connect({ authtoken: token, addr: serverPort });
   console.log("Endpoints:");
   console.log("    http://" + ip + ":" + serverPort + "/google-home-notifier");
   console.log("    " + url + "/google-home-notifier");
