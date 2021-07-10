@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build . -t kanzmrsw/google-hone-notifier
+docker build . -t kanzmrsw/google-home-notifier
